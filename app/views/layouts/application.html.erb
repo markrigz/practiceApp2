@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Practice2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <li class="active"><%= link_to 'Home', root_url %></li>
+  <% if current_user %>
+    <li class="active"><%= link_to current_user.username, user_url(current_user.id) %></li>
+    <li class="active"> <%= link_to 'Log out', logout_path, session: :destroy %></li>
+    <% else %>
+    <li class="active"><%= link_to 'Log in', login_path %></li>
+    <li class="active"> <%= link_to 'Sign up', signup_path %></li>
+  <% end %>
+  <body>
+    <%= yield %>
+  </body>
+</html>

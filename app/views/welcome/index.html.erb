@@ -1,0 +1,7 @@
+<h1>Welcome to 'Today I Have...'</h1>
+
+<% if session[:user_id] %>
+  <%= link_to 'Begin', controller: 'articles' %>
+<% else %>
+  <i>Please login or sign up!</i>
+<% end %>
